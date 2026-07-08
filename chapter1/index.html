@@ -5,9 +5,449 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ahmet Karakoyun — Backend & AI-Powered Systems</title>
 <meta name="description" content="Ahmet Karakoyun — software engineering student at Çankaya University, co-founder of Feza-Co. Backend development, optimization algorithms and AI-powered systems.">
-<meta name="theme-color" content="#0a0e14">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%230a0e14'/%3E%3Cpath d='M2 13 L7 8 L10 10 L14 3' stroke='%2357d9c0' stroke-width='1.6' fill='none'/%3E%3Ccircle cx='14' cy='3' r='2' fill='%23e8b44f'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="css/style.css">
+<meta name="theme-color" content="#070b14">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23070b14'/%3E%3Cpath d='M2 13 L7 8 L10 10 L14 3' stroke='%234da3ff' stroke-width='1.6' fill='none'/%3E%3Ccircle cx='14' cy='3' r='2' fill='%23e8b44f'/%3E%3C/svg%3E">
+
+<style>
+/* ================================================================
+   Ahmet Karakoyun — personal branding site (chapter1, single file)
+   Theme: night navy · neon blue · white — gold reserved for wins
+   ================================================================ */
+
+:root {
+  --bg:        #070b14;
+  --panel:     #0d1422;
+  --panel-2:   #121a2b;
+  --line:      #1c2a44;
+  --ink:       #dbe4f5;
+  --ink-dim:   #8fa0bd;
+  --neon:      #4da3ff;
+  --neon-soft: rgba(77, 163, 255, 0.14);
+  --gold:      #e8b44f;
+  --gold-soft: rgba(232, 180, 79, 0.12);
+
+  --font-disp: "Bahnschrift", "Segoe UI Semibold", "Arial Narrow", sans-serif;
+  --font-body: "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "Cascadia Code", ui-monospace, "JetBrains Mono", Consolas, monospace;
+
+  --maxw: 1080px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: var(--neon); color: var(--bg); }
+
+a { color: var(--neon); }
+
+:focus-visible {
+  outline: 2px solid var(--neon);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.skip-link {
+  position: absolute; left: 1rem; top: -3rem;
+  background: var(--neon); color: var(--bg);
+  padding: 0.4rem 0.9rem;
+  font-family: var(--font-mono); font-size: 0.85rem;
+  text-decoration: none; z-index: 100;
+  transition: top 0.15s;
+}
+.skip-link:focus { top: 1rem; }
+
+/* ---------------- nav ---------------- */
+
+.topnav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; gap: 1.5rem;
+  padding: 0.7rem 1.25rem;
+  background: rgba(7, 11, 20, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-mono); font-size: 0.85rem;
+}
+
+.brand { color: var(--neon); text-decoration: none; font-weight: 600; white-space: nowrap; }
+
+.nav-links {
+  display: flex; gap: 0.25rem; list-style: none;
+  overflow-x: auto; scrollbar-width: none;
+}
+.nav-links::-webkit-scrollbar { display: none; }
+
+.nav-links a {
+  display: block; padding: 0.3rem 0.65rem;
+  color: var(--ink-dim); text-decoration: none;
+  border-radius: 4px; white-space: nowrap;
+  transition: color 0.15s;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-links a[aria-current="true"] { color: var(--neon); background: var(--neon-soft); }
+.nav-links a[aria-current="true"]::before { content: "▸ "; }
+
+/* ---------------- hero ---------------- */
+
+.hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
+
+#pathfinder {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  opacity: 0.5;
+}
+
+.hero-inner {
+  position: relative;
+  max-width: var(--maxw); margin: 0 auto;
+  padding: 5.5rem 1.5rem 4.5rem;
+  display: grid; grid-template-columns: 1.15fr 1fr;
+  gap: 3rem; align-items: center;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-mono); font-size: 0.85rem;
+  color: var(--neon); margin-bottom: 1rem;
+}
+
+.hero-name {
+  font-family: var(--font-disp);
+  font-size: clamp(3rem, 7.5vw, 4.8rem);
+  font-weight: 700; line-height: 0.98;
+  letter-spacing: 0.01em; text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.hero-tagline {
+  font-size: 1.125rem; color: var(--ink-dim);
+  max-width: 34rem; margin-bottom: 1.5rem;
+}
+
+.hero-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
+
+.chip {
+  font-family: var(--font-mono); font-size: 0.78rem;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--line); border-radius: 999px;
+  color: var(--ink-dim); background: var(--panel);
+}
+.chip-gold {
+  color: var(--gold);
+  border-color: rgba(232, 180, 79, 0.4);
+  background: var(--gold-soft);
+}
+
+.hero-ctas { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-mono); font-size: 0.9rem;
+  padding: 0.6rem 1.2rem; border-radius: 6px;
+  text-decoration: none;
+  transition: transform 0.15s, background 0.15s, border-color 0.15s;
+}
+.btn:hover { transform: translateY(-2px); }
+
+.btn-primary { background: var(--neon); color: var(--bg); font-weight: 600; }
+.btn-primary:hover { background: #74b9ff; }
+
+.btn-ghost { border: 1px solid var(--line); color: var(--ink); background: transparent; }
+.btn-ghost:hover { border-color: var(--neon); }
+
+/* terminal window */
+
+.terminal {
+  background: var(--panel);
+  border: 1px solid var(--line); border-radius: 10px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+  font-family: var(--font-mono); font-size: 0.86rem;
+  min-width: 0;
+}
+
+.terminal-bar {
+  display: flex; align-items: center; gap: 0.45rem;
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.dot { width: 11px; height: 11px; border-radius: 50%; }
+.dot-r { background: #f0665c; }
+.dot-y { background: #f0bf4c; }
+.dot-g { background: #5fc46a; }
+
+.terminal-title { margin-left: 0.5rem; font-size: 0.75rem; color: var(--ink-dim); }
+
+.terminal-body { padding: 1rem 1.1rem 1.2rem; min-height: 12.5rem; }
+
+.t-line { white-space: pre-wrap; word-break: break-word; }
+.t-cmd { color: var(--ink); margin-top: 0.55rem; }
+.t-cmd::before { content: "$ "; color: var(--neon); }
+.t-cmd:first-child { margin-top: 0; }
+.t-out { color: var(--ink-dim); }
+.t-gold { color: var(--gold); }
+.t-hidden { display: none; }
+
+.t-cursor::after {
+  content: "▋"; color: var(--neon);
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* ---------------- sections ---------------- */
+
+.section {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 1rem;
+}
+
+.section-title {
+  font-family: var(--font-mono);
+  font-size: clamp(1.25rem, 2.6vw, 1.6rem);
+  font-weight: 600; margin-bottom: 2rem;
+  color: var(--ink);
+}
+.prompt { color: var(--neon); }
+
+.sub-title {
+  font-family: var(--font-mono);
+  font-size: 0.9rem; color: var(--neon);
+  margin: 2.5rem 0 1.25rem;
+}
+.sub-title::before { content: "## "; color: var(--ink-dim); }
+
+.sub-row {
+  display: flex; align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem; flex-wrap: wrap;
+  margin: 2.5rem 0 1.25rem;
+}
+.sub-row .sub-title { margin: 0; }
+
+.feza-badge {
+  font-family: var(--font-mono); font-size: 0.75rem;
+  padding: 0.28rem 0.75rem;
+  border: 1px solid rgba(77, 163, 255, 0.45);
+  border-radius: 999px;
+  color: var(--neon); background: var(--neon-soft);
+  text-decoration: none;
+  transition: box-shadow 0.18s ease, transform 0.18s ease;
+}
+.feza-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 18px rgba(77, 163, 255, 0.3);
+}
+
+.reveal {
+  opacity: 0; transform: translateY(18px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.reveal.in { opacity: 1; transform: none; }
+
+/* framed images */
+
+.figure { margin: 0; min-width: 0; }
+
+.figure img {
+  display: block; width: 100%; height: auto;
+  border: 1px solid var(--line); border-radius: 12px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
+}
+
+.figure figcaption {
+  font-family: var(--font-mono); font-size: 0.75rem;
+  color: var(--ink-dim); margin-top: 0.6rem;
+}
+.figure figcaption::before { content: "// "; color: var(--neon); }
+
+/* who i am */
+
+.about-grid {
+  display: grid; grid-template-columns: 1.05fr 1fr;
+  gap: 2.5rem; align-items: center;
+}
+
+.prose p { margin-bottom: 1rem; }
+.prose p:last-child { margin-bottom: 0; }
+.prose strong { color: var(--ink); }
+
+/* skills */
+
+.skills-grid {
+  display: grid; grid-template-columns: 1.3fr 1fr;
+  gap: 2.5rem; align-items: start;
+}
+
+.skill-groups { display: flex; flex-direction: column; gap: 0.85rem; }
+
+.skill-row {
+  display: grid; grid-template-columns: 8.5rem 1fr;
+  gap: 1rem; align-items: baseline;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px dashed var(--line);
+}
+.skill-row:last-child { border-bottom: none; }
+
+.skill-row dt {
+  font-family: var(--font-mono); font-size: 0.85rem;
+  color: var(--neon);
+}
+.skill-row dt::after { content: "/"; color: var(--ink-dim); }
+
+.skill-row dd { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+.tag {
+  font-family: var(--font-mono); font-size: 0.78rem;
+  padding: 0.18rem 0.55rem;
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: 4px; color: var(--ink);
+}
+
+/* cards (hackathons + internships) */
+
+.card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line); border-radius: 10px;
+  padding: 1.4rem 1.5rem;
+  display: flex; flex-direction: column; gap: 0.55rem;
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+.card:hover {
+  transform: translateY(-4px) scale(1.025);
+  border-color: var(--neon);
+  box-shadow: 0 0 0 1px rgba(77, 163, 255, 0.35),
+              0 8px 32px rgba(77, 163, 255, 0.22);
+}
+.card-award { border-color: rgba(232, 180, 79, 0.35); }
+.card-award:hover {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 1px rgba(232, 180, 79, 0.35),
+              0 8px 32px rgba(232, 180, 79, 0.22);
+}
+
+.card h3, .card h4 {
+  font-family: var(--font-disp);
+  font-size: 1.3rem; letter-spacing: 0.01em;
+}
+
+.card-badge {
+  align-self: flex-start;
+  font-family: var(--font-mono); font-size: 0.72rem;
+  padding: 0.22rem 0.6rem; border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--ink-dim); background: var(--bg);
+}
+.badge-gold {
+  color: var(--gold);
+  border-color: rgba(232, 180, 79, 0.45);
+  background: var(--gold-soft);
+}
+
+.card-sub { font-family: var(--font-mono); font-size: 0.8rem; color: var(--neon); }
+.card p { color: var(--ink-dim); font-size: 0.95rem; }
+.card p.card-sub { color: var(--neon); }
+
+.card-tech {
+  margin-top: auto;
+  font-family: var(--font-mono); font-size: 0.75rem;
+  color: var(--ink-dim);
+  padding-top: 0.5rem;
+  border-top: 1px dashed var(--line);
+}
+
+.also-line {
+  margin-top: 1.75rem;
+  font-family: var(--font-mono); font-size: 0.8rem;
+  color: var(--ink-dim);
+}
+
+/* future goal */
+
+.goal-visual { position: relative; }
+
+.goal-visual img {
+  display: block; width: 100%;
+  aspect-ratio: 21 / 9; object-fit: cover;
+  border: 1px solid var(--line); border-radius: 12px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
+}
+
+.goal-quote {
+  position: absolute; left: 2rem; bottom: 2rem;
+  max-width: 36rem;
+  background: rgba(7, 11, 20, 0.78);
+  backdrop-filter: blur(8px);
+  border-left: 3px solid var(--neon);
+  border-radius: 0 10px 10px 0;
+  padding: 1.4rem 1.6rem;
+}
+.goal-quote p { font-size: 1.05rem; line-height: 1.65; color: var(--ink); }
+.goal-quote strong { color: var(--neon); }
+
+/* footer / contact */
+
+.footer {
+  margin-top: 4.5rem;
+  border-top: 1px solid var(--line);
+  padding: 2.5rem 1.5rem 2rem;
+}
+
+.footer-inner { max-width: var(--maxw); margin: 0 auto; text-align: center; }
+
+.footer-lead { color: var(--ink-dim); margin-bottom: 1.25rem; }
+
+.contact-links {
+  display: flex; flex-wrap: wrap; gap: 0.75rem;
+  justify-content: center; margin-bottom: 2rem;
+}
+
+.footer-note {
+  font-family: var(--font-mono); font-size: 0.78rem;
+  color: var(--ink-dim);
+}
+.footer-path { color: var(--neon); }
+
+/* ---------------- responsive ---------------- */
+
+@media (max-width: 860px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding-top: 4rem; padding-bottom: 3.5rem;
+  }
+  .about-grid, .skills-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+  .card-grid { grid-template-columns: 1fr; }
+  .skill-row { grid-template-columns: 1fr; gap: 0.4rem; }
+  .section { padding-top: 3.5rem; }
+  .goal-visual img { aspect-ratio: auto; }
+  .goal-quote {
+    position: static;
+    max-width: none;
+    margin-top: 1rem;
+    background: var(--panel);
+  }
+}
+
+/* ---------------- reduced motion ---------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .btn:hover, .card:hover, .feza-badge:hover { transform: none; }
+  .t-cursor::after { animation: none; }
+}
+</style>
 </head>
 <body>
 
@@ -18,8 +458,6 @@
   <ul class="nav-links">
     <li><a href="#who-i-am">who-i-am</a></li>
     <li><a href="#skills">skills</a></li>
-    <li><a href="#projects">projects</a></li>
-    <li><a href="#experience">experience</a></li>
     <li><a href="#goal">goal</a></li>
     <li><a href="#contact">contact</a></li>
   </ul>
@@ -39,7 +477,7 @@
         <span class="chip">Co-founder · Feza-Co</span>
       </div>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="#projects">View projects</a>
+        <a class="btn btn-primary" href="#skills">View my work</a>
         <a class="btn btn-ghost" href="mailto:ahmetkrkyn0@gmail.com">Email me</a>
       </div>
     </div>
@@ -64,182 +502,529 @@
 
 <main>
 
+  <!-- ============ 1 · WHO I AM ============ -->
   <section class="section reveal" id="who-i-am">
     <h2 class="section-title"><span class="prompt">$</span> cat who-i-am.md</h2>
-    <div class="prose two-col">
-      <p>I am a Software Engineering student at Çankaya University and co-founder of
-        <strong>Feza-Co Technology Collective</strong>, specializing in backend development,
-        optimization algorithms and AI-powered systems. I build scalable RESTful services,
-        machine-learning decision engines and real-time web applications — and I test them
-        where it counts: national and international competitions, where I've taken
-        <strong>1st place twice</strong>, at the TUA (Turkish Space Agency) Astro Hackathon 2026
-        and the European HealthTech Co-Creation &amp; Innovation Platform.</p>
-      <p>I currently work as a <strong>Software Engineering Intern at the Presidency of the
-        Republic of Türkiye, Software Department</strong>, contributing to R&amp;D in Natural
-        Language Processing. Beyond code, I lead: as captain of the Çankaya University
-        Billiards Team since 2023, I compete in inter-university tournaments and know how to
-        keep a team focused under pressure. I communicate confidently in English and am
-        actively developing my Russian.</p>
+    <div class="about-grid">
+      <div class="prose">
+        <p>I am a Software Engineering student at Çankaya University and co-founder of
+          <strong>Feza-Co Technology Collective</strong>, specializing in backend development,
+          optimization algorithms and AI-powered systems. I build scalable RESTful services,
+          machine-learning decision engines and real-time web applications — and I test them
+          where it counts: national and international competitions, where I've taken
+          <strong>1st place twice</strong>, at the TUA (Turkish Space Agency) Astro Hackathon 2026
+          and the European HealthTech Co-Creation &amp; Innovation Platform.</p>
+        <p>I currently work as a <strong>Software Engineering Intern at the Presidency of the
+          Republic of Türkiye, Software Department</strong>, contributing to R&amp;D in Natural
+          Language Processing. Beyond code, I lead: as captain of the Çankaya University
+          Billiards Team since 2023, I compete in inter-university tournaments and know how to
+          keep a team focused under pressure. I communicate confidently in English and am
+          actively developing my Russian.</p>
+      </div>
+      <figure class="figure">
+        <img src="who-i-am.png" alt="Silhouette of a software engineer working at night in front of two glowing monitors, with a night-blue city skyline behind the window" loading="lazy" decoding="async">
+        <figcaption>late-night build sessions, ankara</figcaption>
+      </figure>
     </div>
   </section>
 
+  <!-- ============ 2 · MY SKILLS ============ -->
   <section class="section reveal" id="skills">
-    <h2 class="section-title"><span class="prompt">$</span> ls skills/</h2>
-    <dl class="skill-groups">
-      <div class="skill-row">
-        <dt>languages</dt>
-        <dd><span class="tag">Python</span><span class="tag">Java</span><span class="tag">C</span><span class="tag">C++</span><span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">SQL</span></dd>
-      </div>
-      <div class="skill-row">
-        <dt>backend</dt>
-        <dd><span class="tag">Spring Boot</span><span class="tag">FastAPI</span><span class="tag">Flask</span><span class="tag">RESTful APIs</span><span class="tag">JWT</span><span class="tag">Microservices</span></dd>
-      </div>
-      <div class="skill-row">
-        <dt>frontend</dt>
-        <dd><span class="tag">React 18/19</span><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Tailwind CSS</span><span class="tag">Vite</span></dd>
-      </div>
-      <div class="skill-row">
-        <dt>ai / data</dt>
-        <dd><span class="tag">Machine Learning</span><span class="tag">NumPy</span><span class="tag">Pandas</span><span class="tag">Scikit-learn</span><span class="tag">XGBoost</span><span class="tag">CatBoost</span></dd>
-      </div>
-      <div class="skill-row">
-        <dt>databases</dt>
-        <dd><span class="tag">PostgreSQL</span><span class="tag">MongoDB</span><span class="tag">Redis</span><span class="tag">PL/SQL</span></dd>
-      </div>
-      <div class="skill-row">
-        <dt>tools</dt>
-        <dd><span class="tag">Docker</span><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Swagger</span><span class="tag">Postman</span><span class="tag">Supabase</span></dd>
-      </div>
-      <div class="skill-row">
-        <dt>engineering</dt>
-        <dd><span class="tag">OOP</span><span class="tag">Data Structures</span><span class="tag">Algorithms</span><span class="tag">A* Pathfinding</span><span class="tag">Optimization</span><span class="tag">RBAC</span></dd>
-      </div>
-    </dl>
-  </section>
+    <h2 class="section-title"><span class="prompt">$</span> ls skills/ --with-proof</h2>
 
-  <section class="section reveal" id="projects">
-    <h2 class="section-title"><span class="prompt">$</span> ls projects/ --sort=awards</h2>
-    <div class="project-grid">
+    <div class="skills-grid">
+      <dl class="skill-groups">
+        <div class="skill-row">
+          <dt>languages</dt>
+          <dd><span class="tag">Python</span><span class="tag">Java</span><span class="tag">C</span><span class="tag">C++</span><span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">SQL</span></dd>
+        </div>
+        <div class="skill-row">
+          <dt>backend</dt>
+          <dd><span class="tag">Spring Boot</span><span class="tag">FastAPI</span><span class="tag">Flask</span><span class="tag">RESTful APIs</span><span class="tag">JWT</span><span class="tag">Microservices</span></dd>
+        </div>
+        <div class="skill-row">
+          <dt>frontend</dt>
+          <dd><span class="tag">React 18/19</span><span class="tag">Next.js</span><span class="tag">Tailwind CSS</span><span class="tag">Vite</span></dd>
+        </div>
+        <div class="skill-row">
+          <dt>ai / data</dt>
+          <dd><span class="tag">Machine Learning</span><span class="tag">NumPy</span><span class="tag">Pandas</span><span class="tag">Scikit-learn</span><span class="tag">XGBoost</span><span class="tag">CatBoost</span></dd>
+        </div>
+        <div class="skill-row">
+          <dt>databases</dt>
+          <dd><span class="tag">PostgreSQL</span><span class="tag">MongoDB</span><span class="tag">Redis</span><span class="tag">PL/SQL</span></dd>
+        </div>
+        <div class="skill-row">
+          <dt>tools</dt>
+          <dd><span class="tag">Docker</span><span class="tag">Git</span><span class="tag">Swagger</span><span class="tag">Postman</span><span class="tag">Supabase</span></dd>
+        </div>
+        <div class="skill-row">
+          <dt>engineering</dt>
+          <dd><span class="tag">OOP</span><span class="tag">Algorithms</span><span class="tag">A* Pathfinding</span><span class="tag">Optimization</span><span class="tag">RBAC</span></dd>
+        </div>
+      </dl>
+
+      <figure class="figure">
+        <img src="my-skills.png" alt="A glowing neon-blue pathfinding route weaving between craters on a dark lunar grid, ending at a bright goal node" loading="lazy" decoding="async">
+        <figcaption>A* route on lunar terrain — the LunaPath idea</figcaption>
+      </figure>
+    </div>
+
+    <div class="sub-row">
+      <h3 class="sub-title">hackathon-wins</h3>
+      <a class="feza-badge" href="https://feza-co.dev/ahmet-karakoyun" rel="noopener">⚡ founding member · Feza-Co Engineering Collective</a>
+    </div>
+    <div class="card-grid">
 
       <article class="card card-award">
         <div class="card-badge badge-gold">🏆 1st · TUA Astro Hackathon 2026</div>
-        <h3>LunaPath</h3>
+        <h4>LunaPath</h4>
         <p class="card-sub">Autonomous lunar rover navigation · Team FEZA</p>
-        <p>Multi-criteria route planning for lunar rovers: a modified A* algorithm that
-          simultaneously optimizes slope, energy, shadow and thermal risk over NASA LOLA DEM
-          terrain, backed by physics-based battery and route-risk simulation.</p>
+        <p>Multi-criteria route planning: a modified A* algorithm optimizing slope, energy,
+          shadow and thermal risk over NASA LOLA DEM terrain, with physics-based battery
+          and route-risk simulation.</p>
         <p class="card-tech">Python · FastAPI · React · TypeScript · NumPy · GDAL</p>
       </article>
 
       <article class="card card-award">
         <div class="card-badge badge-gold">🏆 1st · European HealthTech Co-Creation</div>
-        <h3>HealthAI Co-Creation Platform</h3>
+        <h4>HealthAI Co-Creation Platform</h4>
         <p class="card-sub">Secure health-tech collaboration · in active deployment</p>
         <p>GDPR-compliant, NDA-backed platform connecting healthcare professionals with AI
-          engineers — enterprise-grade authentication, private messaging channels and meeting
-          management. Selected first in the university-run competition.</p>
+          engineers — enterprise-grade auth, private messaging and meeting management.</p>
         <p class="card-tech">React 18 · TypeScript · Node.js · Express · MongoDB · Docker</p>
       </article>
 
       <article class="card">
         <div class="card-badge">5th · Kapadokya Hackathon 2026 — Honorable Mention</div>
-        <h3>Raw2Value AI</h3>
+        <h4>Raw2Value AI</h4>
         <p class="card-sub">Raw-material decision engine · Team FEZA</p>
-        <p>ML decision support for producers in the Cappadocia (TR71) region: live TCMB
-          exchange rates and real road distances feed CatBoost/XGBoost models for
-          processing-route classification, net-profit prediction and EU CBAM-compliant
-          CO₂ footprint scoring.</p>
+        <p>ML decision support for Cappadocia-region producers: live TCMB exchange rates and
+          road distances feed CatBoost/XGBoost models for route classification, profit
+          prediction and EU CBAM-compliant CO₂ scoring.</p>
         <p class="card-tech">Python · FastAPI · Next.js · XGBoost · PostgreSQL · Redis</p>
       </article>
 
       <article class="card">
-        <div class="card-badge">Backend Developer</div>
-        <h3>Hayat Ağı Command Center</h3>
-        <p class="card-sub">Disaster-response command center</p>
-        <p>Real-time command center for mesh-network infrastructure in disaster scenarios:
-          live Leaflet topology map, device monitoring and household priority scoring to
-          optimize rescue triage. Built the JWT/RBAC layer and all CRUD endpoints.</p>
-        <p class="card-tech">Node.js · Express · MongoDB · React · Leaflet · Material-UI</p>
-      </article>
-
-      <article class="card">
         <div class="card-badge">METU Sports Tech Hackathon 2026</div>
-        <h3>Meydan</h3>
+        <h4>Meydan</h4>
         <p class="card-sub">AI-powered platform for athletes</p>
         <p>Digital sports platform connecting Türkiye's non-football athletes with fans,
           volunteers and brands — real-time data flow and user management on Supabase.</p>
         <p class="card-tech">React 19 · TypeScript · FastAPI · Supabase · Tailwind CSS</p>
       </article>
 
+    </div>
+
+    <h3 class="sub-title">experience</h3>
+    <div class="card-grid">
+
       <article class="card">
-        <div class="card-badge">ISO/IEC/IEEE 29119-4</div>
-        <h3>Test Courthouse</h3>
-        <p class="card-sub">Gamified software-testing education</p>
-        <p>Courtroom-themed browser platform that teaches software-testing techniques:
-          15 campaign cases, a multiplayer Speed Trial mode and a comprehensive ISO
-          reference library.</p>
-        <p class="card-tech">TypeScript · React · Vite · Node.js · Express</p>
+        <div class="card-badge">2026 — present</div>
+        <h4>Co-Founder · Feza-Co Technology Collective</h4>
+        <p>Shaping the technical vision and architecture of a five-founder software collective;
+          coordinating hackathon runs, open-source work and corporate projects.</p>
+      </article>
+
+      <article class="card">
+        <div class="card-badge">jun 2026 — present</div>
+        <h4>Software Engineering Intern · Presidency of the Republic of Türkiye</h4>
+        <p>Contributing to in-house NLP research and software development at the Software
+          Department, under strict institutional security and confidentiality policies.</p>
+      </article>
+
+      <article class="card">
+        <div class="card-badge">jul 2025</div>
+        <h4>Software Engineering Intern · Social Security Institution (SGK)</h4>
+        <p>Built a scalable enterprise backend with Spring Boot: RESTful APIs, JWT
+          authentication with RBAC, Swagger documentation and SQL / PL-SQL query
+          optimization — applying DI/IoC principles throughout.</p>
+      </article>
+
+      <article class="card">
+        <div class="card-badge">side quests</div>
+        <h4>Also on the record</h4>
+        <p>Kaggle — SPR 2026 Mammography Classification (BioBERTpt, Focal Loss,
+          StratifiedGroupKFold) · Miuul Data Science Bootcamp, 2024 · Hayat Ağı disaster-response
+          command center (backend) · Test Courthouse, an ISO 29119-4 gamified learning platform.</p>
       </article>
 
     </div>
   </section>
 
-  <section class="section reveal" id="experience">
-    <h2 class="section-title"><span class="prompt">$</span> history --work</h2>
-    <ol class="timeline">
-      <li class="tl-item tl-current">
-        <div class="tl-date">2026 — present</div>
-        <h3>Co-Founder · Feza-Co Technology Collective</h3>
-        <p>Shaping the technical vision and architecture of a five-founder software
-          collective; coordinating hackathon runs, open-source work and corporate projects.</p>
-      </li>
-      <li class="tl-item tl-current">
-        <div class="tl-date">jun 2026 — present</div>
-        <h3>Software Engineering Intern · Presidency of the Republic of Türkiye, Software Department</h3>
-        <p>Contributing to in-house NLP research and software development in a professional
-          team environment, under strict institutional security and confidentiality policies.</p>
-      </li>
-      <li class="tl-item">
-        <div class="tl-date">jul 2025</div>
-        <h3>Software Engineering Intern · Social Security Institution (SGK)</h3>
-        <p>Built a scalable enterprise backend with Spring Boot: RESTful APIs, JWT
-          authentication with role-based access control, Swagger documentation, and
-          SQL / PL-SQL query optimization — applying DI/IoC principles throughout.</p>
-      </li>
-    </ol>
-    <p class="also-line">also: Kaggle — SPR 2026 Mammography Classification (BioBERTpt, Focal Loss)
-      · Miuul Data Science Bootcamp, 2024</p>
-  </section>
-
+  <!-- ============ 3 · MY FUTURE GOAL ============ -->
   <section class="section reveal" id="goal">
     <h2 class="section-title"><span class="prompt">$</span> cat future-goal.md</h2>
-    <blockquote class="goal-quote">
-      <p>My goal is to grow into a backend engineer who builds <strong>intelligent,
-        large-scale systems</strong> — combining solid engineering foundations with AI-driven
-        decision-making, from optimization algorithms to NLP. Public-sector internships taught
-        me how mission-critical software operates at scale; hackathons taught me how to ship
-        fast and win; co-founding Feza-Co is teaching me how to turn both into products.
-        Next, I'm merging all three.</p>
-    </blockquote>
-  </section>
-
-  <section class="section reveal" id="contact">
-    <h2 class="section-title"><span class="prompt">$</span> contact --open</h2>
-    <p class="contact-lead">Open to backend & AI engineering opportunities.</p>
-    <div class="contact-links">
-      <a class="btn btn-primary" href="mailto:ahmetkrkyn0@gmail.com">ahmetkrkyn0@gmail.com</a>
-      <a class="btn btn-ghost" href="https://github.com/ahmetkrkyn0" rel="noopener">github.com/ahmetkrkyn0</a>
-      <a class="btn btn-ghost" href="https://linkedin.com/in/ahmetkrkyn0" rel="noopener">linkedin.com/in/ahmetkrkyn0</a>
-      <a class="btn btn-ghost" href="https://feza-co.dev/ahmet-karakoyun" rel="noopener">feza-co.dev/ahmet-karakoyun</a>
+    <div class="goal-visual">
+      <img src="future-goals.png" alt="A neon-blue light trail ascending from a dark horizon toward a starry night sky, with a distant moon" loading="lazy" decoding="async">
+      <blockquote class="goal-quote">
+        <p>My goal is to grow into a backend engineer who builds <strong>intelligent,
+          large-scale systems</strong> — combining solid engineering foundations with AI-driven
+          decision-making, from optimization algorithms to NLP. Public-sector internships taught
+          me how mission-critical software operates at scale; hackathons taught me how to ship
+          fast and win; co-founding Feza-Co is teaching me how to turn both into products.
+          Next, I'm merging all three.</p>
+      </blockquote>
     </div>
   </section>
 
 </main>
 
-<footer class="footer">
-  <p>© 2026 Ahmet Karakoyun · plain HTML/CSS/JS, no frameworks · <span class="footer-path">~/innovation-campus/chapter1</span></p>
+<footer class="footer" id="contact">
+  <div class="footer-inner">
+    <p class="footer-lead">Open to backend &amp; AI engineering opportunities.</p>
+    <div class="contact-links">
+      <a class="btn btn-primary" href="mailto:ahmetkrkyn0@gmail.com">ahmetkrkyn0@gmail.com</a>
+      <a class="btn btn-ghost" href="https://github.com/ahmetkrkyn0" rel="noopener">GitHub</a>
+      <a class="btn btn-ghost" href="https://linkedin.com/in/ahmetkrkyn0" rel="noopener">LinkedIn</a>
+      <a class="btn btn-ghost" href="https://feza-co.dev/ahmet-karakoyun" rel="noopener">feza-co.dev</a>
+    </div>
+    <p class="footer-note">© 2026 Ahmet Karakoyun · single-file HTML/CSS/JS, no frameworks ·
+      <span class="footer-path">~/innovation-campus/chapter1</span></p>
+  </div>
 </footer>
 
-<script src="js/main.js"></script>
+<script>
+/* 1. terminal typing · 2. scroll reveal · 3. active nav · 4. A* hero canvas */
+(function () {
+  "use strict";
+
+  var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- 1. terminal typing ---------- */
+
+  function runTerminal() {
+    var body = document.getElementById("terminal-body");
+    if (!body) return;
+    var lines = Array.prototype.slice.call(body.querySelectorAll(".t-line"));
+    if (reducedMotion) return; // lines are already fully in the DOM
+
+    lines.forEach(function (line) {
+      line.dataset.text = line.textContent;
+      line.textContent = "";
+      line.classList.add("t-hidden");
+    });
+
+    var i = 0;
+
+    function nextLine() {
+      if (i >= lines.length) return;
+      var line = lines[i++];
+      line.classList.remove("t-hidden");
+
+      if (line.classList.contains("t-cmd")) {
+        typeChars(line, line.dataset.text, 0, function () {
+          setTimeout(nextLine, 220);
+        });
+      } else {
+        line.textContent = line.dataset.text;
+        setTimeout(nextLine, 120);
+      }
+    }
+
+    function typeChars(line, text, pos, done) {
+      line.classList.add("t-cursor");
+      if (pos <= text.length) {
+        line.textContent = text.slice(0, pos);
+        setTimeout(function () { typeChars(line, text, pos + 1, done); }, 34);
+      } else {
+        line.classList.remove("t-cursor");
+        done();
+      }
+    }
+
+    setTimeout(nextLine, 500);
+  }
+
+  /* ---------- 2. scroll reveal ---------- */
+
+  function setupReveal() {
+    var sections = document.querySelectorAll(".reveal");
+    if (reducedMotion || !("IntersectionObserver" in window)) {
+      sections.forEach(function (s) { s.classList.add("in"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add("in");
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    sections.forEach(function (s) { io.observe(s); });
+  }
+
+  /* ---------- 3. active nav ---------- */
+
+  function setupActiveNav() {
+    var links = document.querySelectorAll(".nav-links a");
+    var byId = {};
+    links.forEach(function (a) { byId[a.getAttribute("href").slice(1)] = a; });
+
+    if (!("IntersectionObserver" in window)) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        var link = byId[e.target.id];
+        if (!link) return;
+        if (e.isIntersecting) {
+          links.forEach(function (a) { a.removeAttribute("aria-current"); });
+          link.setAttribute("aria-current", "true");
+        }
+      });
+    }, { rootMargin: "-40% 0px -55% 0px" });
+
+    document.querySelectorAll("main .section, #contact").forEach(function (s) { io.observe(s); });
+  }
+
+  /* ---------- 4. A* pathfinding canvas ---------- */
+
+  function setupPathfinder() {
+    var canvas = document.getElementById("pathfinder");
+    if (!canvas || !canvas.getContext) return;
+    var ctx = canvas.getContext("2d");
+
+    var CELL = 42;
+    var cols, rows, dpr, w, h;
+    var seedCounter = 20260707;
+
+    function mulberry32(a) {
+      return function () {
+        a |= 0; a = (a + 0x6D2B79F5) | 0;
+        var t = Math.imul(a ^ (a >>> 15), 1 | a);
+        t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+      };
+    }
+
+    function resize() {
+      dpr = window.devicePixelRatio || 1;
+      w = canvas.clientWidth;
+      h = canvas.clientHeight;
+      canvas.width = Math.round(w * dpr);
+      canvas.height = Math.round(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      cols = Math.max(6, Math.ceil(w / CELL));
+      rows = Math.max(4, Math.ceil(h / CELL));
+    }
+
+    function buildRun() {
+      for (var attempt = 0; attempt < 12; attempt++) {
+        var rand = mulberry32(seedCounter++);
+        var blocked = [];
+        for (var y = 0; y < rows; y++) {
+          blocked.push([]);
+          for (var x = 0; x < cols; x++) {
+            blocked[y].push(rand() < 0.24);
+          }
+        }
+        var start = {
+          x: Math.floor(rand() * Math.max(1, Math.floor(cols / 5))),
+          y: Math.floor(rand() * rows)
+        };
+        var goal = {
+          x: cols - 1 - Math.floor(rand() * Math.max(1, Math.floor(cols / 5))),
+          y: Math.floor(rand() * rows)
+        };
+        blocked[start.y][start.x] = false;
+        blocked[goal.y][goal.x] = false;
+
+        var result = astar(blocked, start, goal);
+        if (result) return { blocked: blocked, start: start, goal: goal, visited: result.visited, path: result.path };
+      }
+      return null;
+    }
+
+    function astar(blocked, start, goal) {
+      var open = [];
+      var came = {};
+      var g = {};
+      var visited = [];
+      var key = function (x, y) { return x + "," + y; };
+      var hFn = function (x, y) { return Math.abs(x - goal.x) + Math.abs(y - goal.y); };
+
+      g[key(start.x, start.y)] = 0;
+      open.push({ x: start.x, y: start.y, f: hFn(start.x, start.y) });
+      var closed = {};
+
+      while (open.length) {
+        var bi = 0;
+        for (var i = 1; i < open.length; i++) if (open[i].f < open[bi].f) bi = i;
+        var cur = open.splice(bi, 1)[0];
+        var ck = key(cur.x, cur.y);
+        if (closed[ck]) continue;
+        closed[ck] = true;
+        visited.push(cur);
+
+        if (cur.x === goal.x && cur.y === goal.y) {
+          var path = [cur];
+          var k = ck;
+          while (came[k]) {
+            path.unshift(came[k]);
+            k = key(came[k].x, came[k].y);
+          }
+          return { visited: visited, path: path };
+        }
+
+        var dirs = [[1, 0], [-1, 0], [0, 1], [0, -1]];
+        for (var d = 0; d < 4; d++) {
+          var nx = cur.x + dirs[d][0], ny = cur.y + dirs[d][1];
+          if (nx < 0 || ny < 0 || nx >= cols || ny >= rows) continue;
+          if (blocked[ny][nx] || closed[key(nx, ny)]) continue;
+          var ng = g[ck] + 1;
+          var nk = key(nx, ny);
+          if (g[nk] === undefined || ng < g[nk]) {
+            g[nk] = ng;
+            came[nk] = { x: cur.x, y: cur.y };
+            open.push({ x: nx, y: ny, f: ng + hFn(nx, ny) });
+          }
+        }
+      }
+      return null;
+    }
+
+    function cx(x) { return (x + 0.5) * (w / cols); }
+    function cy(y) { return (y + 0.5) * (h / rows); }
+
+    function drawFrame(run, visCount, pathCount, alpha) {
+      ctx.clearRect(0, 0, w, h);
+      ctx.globalAlpha = alpha;
+
+      for (var y = 0; y < rows; y++) {
+        for (var x = 0; x < cols; x++) {
+          if (run.blocked[y][x]) {
+            ctx.fillStyle = "rgba(143, 160, 189, 0.10)";
+            ctx.beginPath();
+            ctx.arc(cx(x), cy(y), 4.5, 0, Math.PI * 2);
+            ctx.fill();
+          } else {
+            ctx.fillStyle = "rgba(143, 160, 189, 0.14)";
+            ctx.fillRect(cx(x) - 1, cy(y) - 1, 2, 2);
+          }
+        }
+      }
+
+      ctx.fillStyle = "rgba(77, 163, 255, 0.22)";
+      for (var i = 0; i < visCount && i < run.visited.length; i++) {
+        var v = run.visited[i];
+        ctx.beginPath();
+        ctx.arc(cx(v.x), cy(v.y), 2.6, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      if (pathCount > 1) {
+        ctx.strokeStyle = "rgba(77, 163, 255, 0.9)";
+        ctx.lineWidth = 2;
+        ctx.lineJoin = "round";
+        ctx.beginPath();
+        ctx.moveTo(cx(run.path[0].x), cy(run.path[0].y));
+        for (var p = 1; p < pathCount && p < run.path.length; p++) {
+          ctx.lineTo(cx(run.path[p].x), cy(run.path[p].y));
+        }
+        ctx.stroke();
+      }
+
+      ctx.fillStyle = "rgba(219, 228, 245, 0.9)";
+      ctx.beginPath();
+      ctx.arc(cx(run.start.x), cy(run.start.y), 3.5, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = "#e8b44f";
+      ctx.beginPath();
+      ctx.arc(cx(run.goal.x), cy(run.goal.y), 5, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.strokeStyle = "rgba(232, 180, 79, 0.35)";
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.arc(cx(run.goal.x), cy(run.goal.y), 9, 0, Math.PI * 2);
+      ctx.stroke();
+
+      ctx.globalAlpha = 1;
+    }
+
+    var run = null;
+    var phase = "explore";
+    var visCount = 0, pathCount = 0, holdUntil = 0, fadeStart = 0;
+    var running = true;
+    var rafId = null;
+
+    function tick(ts) {
+      if (!running) { rafId = null; return; }
+      if (!run) {
+        run = buildRun();
+        if (!run) { rafId = null; return; }
+        phase = "explore"; visCount = 0; pathCount = 0;
+      }
+
+      if (phase === "explore") {
+        visCount += 4;
+        drawFrame(run, visCount, 0, 1);
+        if (visCount >= run.visited.length) phase = "trace";
+      } else if (phase === "trace") {
+        pathCount += 1;
+        drawFrame(run, run.visited.length, pathCount, 1);
+        if (pathCount >= run.path.length) {
+          phase = "hold";
+          holdUntil = ts + 3200;
+        }
+      } else if (phase === "hold") {
+        drawFrame(run, run.visited.length, run.path.length, 1);
+        if (ts >= holdUntil) { phase = "fade"; fadeStart = ts; }
+      } else if (phase === "fade") {
+        var a = Math.max(0, 1 - (ts - fadeStart) / 900);
+        drawFrame(run, run.visited.length, run.path.length, a);
+        if (a <= 0) run = null;
+      }
+
+      rafId = window.requestAnimationFrame(tick);
+    }
+
+    function start() {
+      if (rafId === null && running) rafId = window.requestAnimationFrame(tick);
+    }
+
+    resize();
+
+    if (reducedMotion) {
+      run = buildRun();
+      if (run) drawFrame(run, run.visited.length, run.path.length, 1);
+      window.addEventListener("resize", function () {
+        resize();
+        run = buildRun();
+        if (run) drawFrame(run, run.visited.length, run.path.length, 1);
+      });
+      return;
+    }
+
+    start();
+
+    var resizeTimer;
+    window.addEventListener("resize", function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () { resize(); run = null; }, 150);
+    });
+
+    document.addEventListener("visibilitychange", function () {
+      running = !document.hidden;
+      if (running) start();
+    });
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        running = entries[0].isIntersecting && !document.hidden;
+        if (running) start();
+      }).observe(canvas);
+    }
+  }
+
+  /* ---------- boot ---------- */
+
+  document.addEventListener("DOMContentLoaded", function () {
+    runTerminal();
+    setupReveal();
+    setupActiveNav();
+    setupPathfinder();
+  });
+})();
+</script>
 </body>
 </html>
