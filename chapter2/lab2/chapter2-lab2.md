@@ -294,3 +294,27 @@ Ilk taslakta hata yapabilecegim en kritik nokta, Spring Boot projesi ve veri yap
 Ikinci dikkat edilmesi gereken nokta buffer time kuraliydi. Plani daha verimli gostermek icin bloklari arka arkaya koymak cazipti; fakat bu, zaten plana uyamayan bir ogrenci icin gercekci olmazdi. Verification adimi sayesinde her 2 saatlik calisma sonrasinda 30 dakikalik esneklik payinin varligini kontrol ettim.
 
 Ucuncu nokta priority logic oldu. Sadece "acil is cikarsa esnek davran" demek yetersiz kalirdi. Bu yuzden hangi blogun ilk elenecegini acikca belirttim: gun sonundaki hafif tekrar / plan toparlama blogu. Boylece ogrenci plan bozuldugunda tum gunu kaybetmis gibi hissetmek yerine neyi feda edecegini bilir.
+
+---
+
+# Activity: Fill-in-the-Blank Answers
+
+## 1. Lab 2-1
+
+"I felt the biggest 'quality jump' at Step B, because the prompt changed from a generic request into a structured request with a clear role, context, constraints, and output format. Also, the element I will use most often is Context because it helps the AI understand the user's real situation instead of giving broad and generic advice."
+
+## 2. Lab 2-2
+
+"I think adding a buffer time is key to making this plan realistic because students who struggle to stick to plans need flexibility for delays, mental fatigue, and unexpected tasks."
+
+## 3. Lab 2-3
+
+"I intentionally designed the Constraints / Reality Rules section to force the AI to create a sustainable study plan because the student already has difficulty following strict schedules. The reason I chose Buffer Time for the Constraints / Reality Rules section was to prevent the AI from creating back-to-back study blocks with no recovery time."
+
+## 4. Lab 2-4
+
+"Initially, the AI tried to make the schedule too packed, so I plan to refine the Verification Step by adding a strict check for total intensive study hours and required buffer periods to improve accuracy."
+
+## 5. Lab 2-5
+
+"By adjusting the Constraints / Reality Rules section, I was able to solve the problem of unrealistic and overly rigid planning, resulting in a plan that is more flexible, sustainable, and easier for a software engineering student to follow."
